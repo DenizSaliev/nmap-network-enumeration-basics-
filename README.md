@@ -22,7 +22,6 @@
 | **`22/tcp`** | Open | SSH | OpenSSH (Ubuntu Linux) |
 | **`80/tcp`** | Open | HTTP | Apache httpd 2.4.x |
 
-*(Nota: Si en tu escaneo completo `-p-` detectaste algún puerto adicional como `53`, `443` o `3306`, añádelo a esta tabla con su respectiva versión y estado).*
 
 ---
 
