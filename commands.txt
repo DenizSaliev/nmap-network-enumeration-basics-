@@ -1,1 +1,11 @@
+# Descubrimiento de hosts activos
+sudo nmap -sn 192.168.52.0/24
 
+# Escaneo rápido de puertos comunes
+sudo nmap -sS -F 192.168.52.138
+
+# Detección de servicios y versiones
+sudo nmap -sS -sV -p 21,22,80 192.168.52.138
+
+# Escaneo exhaustivo
+sudo nmap -sC -sV -p- -T4 192.168.52.138 -oN scan_completo.txt
