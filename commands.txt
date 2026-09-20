@@ -1,11 +1,31 @@
 # Descubrimiento de hosts activos
 sudo nmap -sn 192.168.52.0/24
 
+- Explicación: 
+  El parámetro -sn indica a Nmap que no realice sondeo de puertos. Envía paquetes ICMP Echo Request y solicitudes ARP locales para listar qué máquinas están encendidas sin generar ruido innecesario en la red.
+
 # Escaneo rápido de puertos comunes
 sudo nmap -sS -F 192.168.52.138
+
+- Explicación: 
+  -sS realiza un escaneo TCP SYN (Stealth Scan). Envía un paquete [SYN]; si el objetivo responde [SYN, ACK], Nmap sabe que el puerto está abierto y envía inmediatamente un [RST] para cerrar la comunicación sin completar el handshake completo.
+
+  -F (Fast mode) limita el análisis a los 100 puertos más frecuentes de la base de datos de Nmap en lugar de los 1.000 habituales.
 
 # Detección de servicios y versiones
 sudo nmap -sS -sV -p 21,22,80 192.168.52.138
 
+- Explicación: 
+  El modificador -sV interroga a los puertos abiertos enviando probes de aplicación específicos para forzar al servicio a responder con su banner o firma de software. Permite identificar la versión concreta del         binario en ejecución (por ejemplo, OpenSSH 8.9p1 o Apache httpd 2.4.52).
+
 # Escaneo exhaustivo
 sudo nmap -sC -sV -p- -T4 192.168.52.138 -oN scan_completo.txt
+
+- Explicación: 
+  -p-: Analiza los 65.535 puertos TCP.
+  
+  -sC: Ejecuta el conjunto básico de scripts NSE (Nmap Scripting Engine) para extraer información adicional del sistema.
+  
+  -T4: Ajusta la plantilla de tiempo (Timing template) a un nivel más rápido y adecuado para laboratorios locales.
+  
+  -oN scan_completo.txt: Exporta los resultados a un archivo de texto plano para conservarlos como evidencia técnica.
