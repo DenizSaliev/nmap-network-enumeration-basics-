@@ -1,19 +1,5 @@
 ---
 
-##  Explicación de Resultados
-
-1. **Descubrimiento de Hosts Activos (`-sn`):**
-   * El barrido ICMP/ARP sobre el segmento local confirmó la dirección IP asignada a la máquina objetivo dentro de la red privada, permitiendo descartar las direcciones no asignadas o inactivas sin saturar la red ni generar alertas en servicios de host.
-
-2. **Comparativa entre Escaneo Rápido (`-F`) y Completo (`-p-`):**
-   * **Escaneo rápido (`-sS -F`):** Analizó únicamente los 100 puertos más habituales definidos por Nmap. La ejecución tomó menos de 2 segundos, localizando de inmediato los servicios estándar habituales (SSH, HTTP y FTP).
-   * **Escaneo exhaustivo (`-p-`):** Requirió un tiempo significativamente mayor al enviar paquetes a los 65.535 puertos TCP posibles. Esta prueba demuestra la diferencia operativa entre un triaje inicial ágil y una auditoría completa orientada a descubrir servicios ocultos o configurados en puertos no estándar (por ejemplo, puertos de administración por encima del 1024).
-
-3. **Detección de Servicios y Versiones (`-sV`):**
-   * La consulta específica sobre los puertos abiertos permitió interactuar con las cabeceras de aplicación (*banners*), extrayendo la compilación exacta del software en ejecución en lugar de asumir el servicio por su número de puerto por defecto. Esto resulta indispensable para consultar bases de datos de vulnerabilidades (CVEs) asociadas a versiones específicas.
-
----
-
 ##  Tabla de Puertos Detectados
 
 | Puerto / Protocolo | Estado | Servicio Identificado | Versión Detectada | Observaciones Técnicas / Riesgo Defensivo |
