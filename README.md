@@ -16,11 +16,11 @@
 
 ##  Tabla de Puertos Detectados
 
-| Puerto / Protocolo | Estado | Servicio Identificado | Versión Detectada | Observaciones Técnicas / Riesgo Defensivo |
+| Puerto / Protocolo | Estado | Servicio Identificado | Versión Detectada |
 | :---: | :---: | :---: | :---: | :--- |
-| **`21/tcp`** | Open | FTP | vsftpd (versión en Ubuntu) | Transmisión de credenciales y datos en texto plano. Se debe evaluar su sustitución por SFTP/SCP. |
-| **`22/tcp`** | Open | SSH | OpenSSH (Ubuntu Linux) | Acceso a consola remota cifrada. Requiere auditar que no permita login directo de `root` ni contraseñas débiles. |
-| **`80/tcp`** | Open | HTTP | Apache httpd 2.4.x | Servidor web sin capa de cifrado TLS. Superficie de exposición habitual que requiere control de permisos en directorios web. |
+| **`21/tcp`** | Open | FTP | vsftpd (versión en Ubuntu) |
+| **`22/tcp`** | Open | SSH | OpenSSH (Ubuntu Linux) |
+| **`80/tcp`** | Open | HTTP | Apache httpd 2.4.x |
 
 *(Nota: Si en tu escaneo completo `-p-` detectaste algún puerto adicional como `53`, `443` o `3306`, añádelo a esta tabla con su respectiva versión y estado).*
 
