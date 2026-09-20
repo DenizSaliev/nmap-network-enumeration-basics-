@@ -17,7 +17,7 @@
 ##  Tabla de Puertos Detectados
 
 | Puerto / Protocolo | Estado | Servicio Identificado | Versión Detectada |
-| :---: | :---: | :---: | :---: | :--- |
+| :---: | :---: | :---: | :---: |
 | **`21/tcp`** | Open | FTP | vsftpd (versión en Ubuntu) |
 | **`22/tcp`** | Open | SSH | OpenSSH (Ubuntu Linux) |
 | **`80/tcp`** | Open | HTTP | Apache httpd 2.4.x |
