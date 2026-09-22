@@ -7,7 +7,7 @@ El propósito de este laboratorio es practicar técnicas esenciales de reconocim
 * **Máquina Auditora (Escáner):** Ubuntu Linux (192.168.52.10).
 * **Máquina Objetivo (Target):** Clon de Ubuntu Linux (192.168.52.138) con servicios estándar de red en ejecución (Apache, OpenSSH, vsftpd).
 * **Segmento de Red:** Red privada local aislada mediante adaptador virtual (Host-Only).
-* **Aviso de Entorno Controlado:** Todas las pruebas y escaneos documentados en este proyecto han sido realizados exclusivamente dentro de un entorno virtualizado local, controlado y debidamente autorizado con fines estrictamente académicos.
+* **Entorno Controlado:** Todas las pruebas y escaneos documentados en este proyecto han sido realizados exclusivamente dentro de un entorno virtualizado local, controlado y debidamente autorizado con fines estrictamente académicos.
 
 ---
 ##  Explicación de Resultados
