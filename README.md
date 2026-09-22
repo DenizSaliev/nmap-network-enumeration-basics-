@@ -35,13 +35,18 @@ El propósito de este laboratorio es practicar técnicas esenciales de reconocim
 
 ---
 
-##  Conclusión de Seguridad
+##  Conclusión de Seguridad Defensiva
 
-1. **Reducción de la Superficie de Ataque (*Attack Surface*):**
-   * Cada puerto en estado `Open` implica un servicio cargado en la memoria del sistema operativo y expuesto a peticiones externas. Desde una perspectiva de seguridad defensiva (Blue Team), es imperativo aplicar el principio de mínimo privilegio desinstalando o deteniendo servicios prescindibles para la operativa del host.
-
-2. **Importancia del Inventariado Preciso de Versiones:**
-   * La enumeración con Nmap no es únicamente una fase previa a una intrusión ofensiva; constituye la herramienta primaria para auditorías internas de cumplimiento y gestión de vulnerabilidades. Conocer la versión exacta del servicio permite a un administrador parchear de forma proactiva software vulnerable antes de que pueda ser explotado.
-
-3. **Visibilidad Interna y Configuración de Firewalls:**
-   * El hecho de que todos los puertos respondieran sin restricciones resalta la ausencia o permisividad de un cortafuegos local de host (`ufw` / `iptables`). En un entorno corporativo endurecido (*hardened*), los puertos de administración como SSH deben estar filtrados mediante reglas restrictivas que solo permitan accesos desde direcciones IP o subredes de gestión específicas.
+* **Qué servicios deberían revisarse:**
+  El servicio FTP (`vsftpd`) en el puerto 21 es la prioridad de revisión, ya que no cifra credenciales en tránsito y su funcionalidad puede ser asumida directamente por SSH a través de SFTP.
+* **Si están expuestos:**
+  Todos los puertos analizados se encuentran accesibles a nivel de red sin filtros locales. Es necesario habilitar el firewall de host (`ufw`) y restringir el acceso al puerto 22 exclusivamente a IPs o subredes de administración.
+* **Si la versión está actualizada:**
+  Las versiones identificadas mediante las sondas de Nmap deben contrastarse con los repositorios oficiales de la distribución mediante `apt list --upgradable` para aplicar parches de seguridad ante posibles vulnerabilidades conocidas (CVEs).
+* **Si generan logs:**
+  Los tres servicios generan trazas de auditoría en el sistema operativo:
+  * Los intentos de acceso por SSH y sudo quedan registrados en `/var/log/auth.log`.
+  * Las peticiones web entrantes se almacenan en `/var/log/apache2/access.log` y `error.log`.
+  * La actividad de subida, descarga y autenticación FTP se guarda en `/var/log/vsftpd.log`.
+* **Qué miraría como primer análisis:**
+  Ante una sospecha de escaneo o intrusión, el primer triaje consistiría en consultar `/var/log/auth.log` para buscar patrones repetitivos de fallos de login desde una misma IP, listar los sockets activos con `ss -tuln` para verificar qué procesos siguen en escucha y aplicar un bloqueo preventivo temporal mediante reglas de `iptables` o `ufw`.
