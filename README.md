@@ -35,6 +35,16 @@ El propósito de este laboratorio es practicar técnicas esenciales de reconocim
 
 ---
 
+## 📊 Tabla de Resultados
+
+| Puerto | Servicio | Versión | Riesgo inicial | Qué revisaría desde Blue Team |
+| :---: | :---: | :---: | :--- | :--- |
+| **`21/tcp`** | FTP | vsftpd (Ubuntu) | **Medio-Alto:** Autenticación y transferencia de ficheros en texto plano por defecto. | Comprobar que no admita conexiones anónimas (`anonymous_enable=NO`), revisar eventos en `/var/log/vsftpd.log` y planificar su reemplazo por SFTP/SCP. |
+| **`22/tcp`** | SSH | OpenSSH (Ubuntu Linux) | **Medio:** Interfaz de administración remota expuesta a intentos de fuerza bruta o credenciales comprometidas. | Auditar `/var/log/auth.log` en busca de intentos fallidos, asegurar que `PermitRootLogin` esté en `no` y exigir autenticación obligatoria mediante par de claves. |
+| **`80/tcp`** | HTTP | Apache httpd 2.4.x | **Bajo-Medio:** Tráfico web no cifrado; potencial exposición de estructura de directorios y versiones de software. | Inspeccionar `/var/log/apache2/access.log` y `error.log`, ocultar cabeceras (`ServerSignature Off` y `ServerTokens Prod`) y forzar redirección a HTTPS (puerto 443). |
+
+---
+
 ##  Conclusión de Seguridad Defensiva
 
 * **Qué servicios deberían revisarse:**
