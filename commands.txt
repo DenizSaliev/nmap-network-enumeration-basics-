@@ -16,7 +16,7 @@ sudo nmap -sS -F 192.168.52.138
 sudo nmap -sS -sV -p 21,22,80 192.168.52.138
 
 - Explicación: 
-  El modificador -sV interroga a los puertos abiertos enviando probes de aplicación específicos para forzar al servicio a responder con su banner o firma de software. Permite identificar la versión concreta del         binario en ejecución (por ejemplo, OpenSSH 8.9p1 o Apache httpd 2.4.52).
+  El modificador -sV interroga a los puertos abiertos enviando probes de aplicación específicos para forzar al servicio a responder con su banner o firma de software. Intenta identificar versiones del         binario en ejecución (por ejemplo, OpenSSH 8.9p1 o Apache httpd 2.4.52).
 
 # Escaneo exhaustivo
 sudo nmap -sC -sV -p- -T4 192.168.52.138 -oN scan_completo.txt
