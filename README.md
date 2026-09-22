@@ -35,7 +35,7 @@ El propósito de este laboratorio es practicar técnicas esenciales de reconocim
 
 ---
 
-## 📊 Tabla de Resultados
+##  Tabla de Resultados
 
 | Puerto | Servicio | Versión | Riesgo inicial | Qué revisaría desde Blue Team |
 | :---: | :---: | :---: | :--- | :--- |
