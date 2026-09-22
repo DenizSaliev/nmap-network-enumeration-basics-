@@ -1,4 +1,3 @@
----
 #  Fundamentos de Enumeración de Redes y Escaneo con Nmap
 
 ##  Objetivo del Laboratorio
